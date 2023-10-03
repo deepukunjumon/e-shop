@@ -1,0 +1,209 @@
+body {
+}
+
+.product-view-container,
+.form-style-5 {
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 680px;
+  max-width: 450px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+.product_desc {
+  max-width: 300px; /* Adjust the width as needed */
+  white-space: pre-line;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Number of lines */
+  -webkit-box-orient: vertical;
+}
+
+.product-image {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.product-image img {
+  max-width: 300px; /* Fixed image width */
+  max-height: 300px; /* Fixed image height */
+  width: 100%; /* Ensure the image scales properly */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.product-details,
+.form-style-5 {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.product-details h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.product-details p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 60px;
+}
+
+.deletebtn,
+.editbtn {
+  height: 40px;
+  width: 100px;
+  font-size: 14px;
+  background-color: #e21a1a;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: center;
+  line-height: 20px;
+  /* margin-top: -10px; */
+  position: absolute; /* Fixed position */
+}
+.editbtn {
+  margin-left: 35px;
+}
+
+.deletebtn {
+  margin-left: 160px;
+}
+
+.form-style-5 {
+  align-self: center;
+  max-height: 680px;
+  max-width: 550px;
+  padding: 50px 10px 50px 20px;
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+.form-style-5 fieldset {
+  border: none;
+}
+
+.form-style-5 legend {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+.form-style-5 label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.form-style-5 input[type="text"],
+.form-style-5 input[type="file"],
+.form-style-5 input[type="date"],
+.form-style-5 input[type="datetime"],
+.form-style-5 input[type="email"],
+.form-style-5 input[type="number"],
+.form-style-5 input[type="search"],
+.form-style-5 input[type="time"],
+.form-style-5 input[type="url"],
+.form-style-5 select {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: #e8eeef;
+  color: #000407;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  margin-bottom: 30px;
+}
+
+.form-style-5 input[type="textarea"] {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 4px;
+  height: 80px;
+  font-size: 15px;
+  margin: 0;
+  outline: 0;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: #e8eeef;
+  color: #000407;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  margin-bottom: 30px;
+}
+
+.form-style-5 input[type="text"]:focus,
+.form-style-5 input[type="date"]:focus,
+.form-style-5 input[type="file"]:focus,
+.form-style-5 input[type="datetime"]:focus,
+.form-style-5 input[type="email"]:focus,
+.form-style-5 input[type="number"]:focus,
+.form-style-5 input[type="search"]:focus,
+.form-style-5 input[type="time"]:focus,
+.form-style-5 input[type="url"]:focus,
+.form-style-5 textarea:focus,
+.form-style-5 select:focus {
+  background: #d2d9dd;
+}
+
+input::file-selector-button {
+  font-weight: normal;
+  color: rgb(4, 111, 219);
+  padding: 0.5em;
+  border: thin solid;
+  border-radius: 3px;
+}
+
+input::file-selector-button:hover {
+  background-color: rgb(62, 167, 233);
+  color: white;
+}
+
+.form-style-5 input[type="submit"],
+.form-style-5 input[type="button"] {
+  position: relative;
+  display: block;
+  width: 150px;
+  height: 40px;
+  padding: center;
+  color: #fff;
+  margin: 0 auto;
+  background: #16ec73;
+  font-size: 14px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 8px;
+  border-width: 1px 1px 3px;
+  margin-bottom: 10px;
+}
+
+.form-style-5 input[type="submit"]:hover,
+.form-style-5 input[type="button"]:hover {
+  background: #0e7019;
+}
