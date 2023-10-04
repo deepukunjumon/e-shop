@@ -1,10 +1,3 @@
-<?php
-    include('../include/connection.php');
-    if (!isset($_SESSION['id'])) {
-        header("location: ../login.php");
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +8,7 @@
 </head>
 <body>
   <?php
+    include('../include/connection.php');
     $userId = mysqli_real_escape_string($conn, $_SESSION['id']);
 
     $sql = "SELECT * FROM users WHERE user_id = '$userId'";
@@ -53,6 +47,7 @@
           <i class="fas fa-box"></i>
           <span class="nav-item">Add New Product</span>
         </a></li>
+
 
 
         <li><a href="../logout.php" class="logout">

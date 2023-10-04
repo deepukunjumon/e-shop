@@ -85,8 +85,7 @@ if (!isset($_SESSION['id'])) {
                 <!-- <p>Description: <?php echo $product_desc; ?></p> -->
                 <p class="product_desc" rows="5"><?php echo $product_desc; ?></p>
                 <p class='price'>Price: ₹ <?php echo $product_price; ?></p>
-                <a href="editproduct.php?edit_id=<?php echo $id; ?>" class="editbtn">Edit</a>
-                <a href="deleteproduct.php?deleteid=<?php echo $id; ?>" class="deletebtn">Delete</a>
+                <a href="deleteproduct.php?deleteid=<?php echo $id; ?>" class="deletebtn">DELETE</a>
             </div>
         </div>
     </section>

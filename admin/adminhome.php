@@ -1,15 +1,14 @@
 <?php
 include('../include/connection.php');
 session_start();
-if (!isset($_SESSION['id'])) {
+if (!isset($_SESSION['id']) && $_SESSION['login'] !== 'true') {
     header("location: ../login.php");
+    exit();
 }
 
-// Fetch user data from the database
 $sql = "SELECT * FROM users where type=0";
 $result = mysqli_query($conn, $sql);
 
-// Check if there are any users
 if (mysqli_num_rows($result) > 0) {
     $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
 } else {

@@ -30,9 +30,7 @@ if (isset($_GET['product_id'])) {
 <head>
   <meta charset="UTF-8" />
   <title>Users</title>
-  <link rel="stylesheet" href="../assets/css/product_page.css" />
-  <!-- <link rel="stylesheet" href="../assets/css/form.css" /> -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <link rel="stylesheet" href="../assets/css/product_page1.css" />
 </head>
 <body>
   <div class="container">
@@ -41,7 +39,7 @@ if (isset($_GET['product_id'])) {
   ?>
     <section class="main">
       <div class="product-view-container">
-        <div class="product-image">
+        <div class="product-image"><br><br><br>
           <img src="<?php echo $product_image; ?>" alt="Product Image">
         </div>
         <div class="product-details">
