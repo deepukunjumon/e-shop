@@ -51,7 +51,7 @@ if (!isset($_SESSION['id'])) {
                 $sql = "UPDATE `products` SET product_name='$product_name', product_desc='$product_desc', product_price='$product_price' WHERE product_id=$id";
 
                 if (mysqli_query($conn, $sql)) {
-                    header("location:editproduct.php?edit_id=$id");
+                    header("location:product_page.php?product_id=$id");
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                 }

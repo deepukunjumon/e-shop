@@ -1,7 +1,7 @@
 <?php
 include('../include/connection.php');
 session_start();
-if (!isset($_SESSION['id']) && $_SESSION['login'] !== 'true') {
+if (!isset($_SESSION['id']) && $_SESSION['login'] !== 'true' && $_SESSION['type'==1]) {
     header("location: ../login.php");
     exit();
 }
@@ -57,7 +57,6 @@ if (mysqli_num_rows($result) > 0) {
         }
         ?>
       </div>
-      <!-- Rest of your HTML code -->
     </section>
   </div>
 </body>

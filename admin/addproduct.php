@@ -75,7 +75,7 @@ mysqli_close($conn);
                     <label for="product_image">Image:</label>
                     <input type="file" name="product_image" id="product_image" placeholder="" required="required" />
                 </fieldset>
-                <input type="submit" value="Submit"/>
+                <input type="submit" value="ADD PRODUCT"/>
             </form>
         </div>
     </section>

@@ -14,6 +14,7 @@ if(isset($_POST["submit"])){
         if($password == $row["password"]){
             $_SESSION["login"] = true;
             $_SESSION["id"] = $row["user_id"];
+            $_SESSION["type"] = $row["type"];
             if ($row["type"] == 1) {
                 header("Location: admin/adminhome.php");
             } else {
