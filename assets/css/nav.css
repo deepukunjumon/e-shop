@@ -19,6 +19,7 @@ body {
 }
 /* Navbar styles */
 .navbar {
+  margin-right: -28px;
   background-color: #f37221;
   display: flex;
   justify-content: space-between;

@@ -26,7 +26,6 @@ if (mysqli_num_rows($result) > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/nav.css">
     <style>
-        /* Add your CSS styles here */
         .pro_pic {
             cursor: pointer;
         }
@@ -42,9 +41,8 @@ if (mysqli_num_rows($result) > 0) {
             <img src="../assets/images/logo/e-shop_logo.png" alt="Logo">
         </div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="">Products</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a href="userhome.php">Home</a></li>
+            <li><a href="cart.php">Cart</a></li>
             <?php if ($_SESSION['login'] == 'true') { ?>
                 <li>
                     <img src='../<?php echo $profile_pic; ?>' alt="Profile Pic" class="pro_pic" onclick="toggleLogoutLink()">

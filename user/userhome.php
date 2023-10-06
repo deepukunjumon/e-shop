@@ -34,10 +34,10 @@ if (!isset($_SESSION['id'])) {
 		</div>
 		<div class="product-details">
 			<span class="product-catagory"></span>
-			<h4><a href=""><?php echo $product_name; ?></a></h4>
+			<h4><a href="view_product.php?product_id=<?php echo $product_id?>"><?php echo $product_name; ?></a></h4>
 			<p><?php echo $product_desc; ?></p>
 			<div class="product-bottom-details">
-				<div class="product-price"><small><?php echo $product_price+125; ?></small><?php echo $product_price; ?></div>
+				<div class="product-price"><small>₹ <?php echo $product_price+125; ?></small>₹<?php echo $product_price; ?></div>
 				<div class="product-links">
 					<a href=""><i class="fa fa-heart"></i></a>
 					<a href=""><i class="fa fa-shopping-cart"></i></a>
