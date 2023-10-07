@@ -9,7 +9,7 @@ if (!isset($_SESSION['id'])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $product_name = mysqli_real_escape_string($conn, $_POST["product_name"]);
     $product_desc = mysqli_real_escape_string($conn, $_POST["product_desc"]);
-    $product_price = mysqli_real_escape_string($conn, $_POST["product_price"]);
+    $product_price = number_format((float)$_POST["product_price"], 2, '.', ''); // Format to 2 decimal places
 
     $cleaned_product_name = preg_replace('/[^A-Za-z0-9\-]/', '_', $product_name);
 
@@ -47,7 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 mysqli_close($conn);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,7 +68,7 @@ mysqli_close($conn);
                     <label for="product_name">Name:</label>
                     <input type="text" name="product_name" id="product_name" placeholder="" required="required" />
                     <label for="product_desc">Description:</label>
-                    <input type="textarea" name="product_desc" id="product_desc" placeholder="" required="required" />
+                    <textarea name="product_desc" id="product_desc" placeholder="" required="required"></textarea>
                     <label for="product_price">Price:</label>
                     <input type="text" name="product_price" id="product_price" placeholder="" required="required" />
                     <label for="product_image">Image:</label>

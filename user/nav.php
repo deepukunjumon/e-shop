@@ -1,11 +1,7 @@
 <?php
 include('../include/connection.php');
 session_start();
-if (!isset($_SESSION['id']) && $_SESSION['login'] !== 'true') {
-    header("location: ../login.php");
-    exit();
-}
-
+$_GET['user_id'] = $_SESSION['id'];
 $sql = "SELECT * FROM users where user_id =" . $_SESSION['id'];
 $result = mysqli_query($conn, $sql);
 
@@ -24,6 +20,7 @@ if (mysqli_num_rows($result) > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/nav.css">
     <style>
         .pro_pic {

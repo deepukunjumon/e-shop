@@ -9,6 +9,25 @@ if (!isset($_SESSION['id'])) {
 
 $user_id = $_SESSION['id'];
 
+// Function to update cart quantity
+if (isset($_POST['update_quantity'])) {
+    $product_id = $_POST['product_id'];
+    $new_quantity = $_POST['new_quantity'];
+
+    // Ensure that quantity is not less than 1
+    $new_quantity = max(1, $new_quantity);
+
+    $update_query = "UPDATE cart SET quantity = $new_quantity WHERE user_id = $user_id AND product_id = $product_id";
+    mysqli_query($conn, $update_query);
+}
+
+// Function to remove item from cart
+if (isset($_GET['remove_product_id'])) {
+    $product_id = $_GET['remove_product_id'];
+    $remove_query = "DELETE FROM cart WHERE user_id = $user_id AND product_id = $product_id";
+    mysqli_query($conn, $remove_query);
+}
+
 $sql = "SELECT p.product_id, p.product_name, p.product_desc, p.product_price, p.product_image, c.quantity 
         FROM cart c
         INNER JOIN products p ON c.product_id = p.product_id
@@ -49,63 +68,53 @@ $totalAmount = 0;
                     <img src="<?php echo $row['product_image']; ?>" class="border rounded me-3" style="width: 96px; height: 96px;" />
                     <div class="">
                       <a href="#" class="nav-link"><?php echo $row['product_name']; ?></a>
-                      <p class="text-muted"><?php echo $row['product_desc']; ?></p>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
                 <div class="">
-                  <select style="width: 100px;" class="form-select me-4">
-                    <option><?php echo $row['quantity']; ?></option>
-                  </select>
+                  <form action="cart.php" method="POST" class="update-quantity-form">
+                    <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>">
+                    <input type="number" name="new_quantity" class="form-control" value="<?php echo $row['quantity']; ?>" min="1" max="10">
+                    <input type="submit" name="update_quantity" value="Update" class="btn btn-primary btn-sm mt-2">
+                  </form>
                 </div>
                 <div class="">
-                  <text class="h6">$<?php echo $formattedProductTotal; ?></text> <br />
-                  <small class="text-muted text-nowrap">$<?php echo $formattedPPrice; ?> / per item </small>
+                  <text class="h6 product-price">Price: $<?php echo $formattedProductTotal; ?></text> <br />
+                  <small class="text-muted text-nowrap">Unit Price: $<?php echo $formattedPPrice; ?> </small>
                 </div>
               </div>
               <div class="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
                 <div class="float-md-end">
-                  <a href="#!" class="btn btn-light border px-2 icon-hover-primary"><i class="fas fa-heart fa-lg px-1 text-secondary"></i></a>
-                  <a href="#" class="btn btn-light border text-danger icon-hover-danger"> Remove</a>
+                  <a href="cart.php?remove_product_id=<?php echo $row['product_id']; ?>" class="btn btn-light border text-danger"> Remove</a>
                 </div>
               </div>
             </div>
             <?php
                 }
             } else {
-                echo "Error fetching cart items: " . mysqli_error($conn);
+                echo "Your cart is empty.";
             }
             ?>
           </div>
         </div>
       </div>
       <div class="col-lg-3">
-        
         <div class="card shadow-0 border">
           <div class="card-body">
             <div class="d-flex justify-content-between">
               <p class="mb-2">Total price:</p>
-              <p class="mb-2">$<?php echo number_format($totalAmount, 2); ?></p>
-            </div>
-            <div class="d-flex justify-content-between">
-              <p class="mb-2">Discount:</p>
-              <p class="mb-2 text-success">-$60.00</p>
-            </div>
-            <div class="d-flex justify-content-between">
-              <p class="mb-2">TAX:</p>
-              <p class="mb-2">$14.00</p>
+              <p class="mb-2 total-amount">$<?php echo number_format($totalAmount, 2); ?></p>
             </div>
             <hr />
             <div class="d-flex justify-content-between">
               <p class="mb-2">Total price:</p>
-              <p class="mb-2 fw-bold">$<?php echo number_format($totalAmount - 60 + 14, 2); ?></p>
+              <p class="mb-2 fw-bold">$<?php echo number_format($totalAmount, 2); ?></p>
             </div>
-
             <div class="mt-3">
-              <a href="#" class="btn btn-success w-100 shadow-0 mb-2"> Make Purchase </a>
-              <a href="#" class="btn btn-light w-100 border mt-2"> Back to shop </a>
+              <a href="#" class="btn btn-success w-100 shadow-0 mb-2"> Checkout </a>
+              <a href="userhome.php" class="btn btn-light w-100 border mt-2"> Back to shop </a>
             </div>
           </div>
         </div>
